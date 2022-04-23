@@ -1,0 +1,21 @@
+<form #depsAdd="ngForm" (ngSubmit)="add(depsAdd)" id="myForm">
+  <div class="form-group">
+    <input type="text" placeholder="Departman" #ad="ngModel" [(ngModel)]="model.ad" class="form-control" name="dep" id="dep">
+  </div>
+  <button type="submit" class="btn btn-primary" onclick="window.location.reload(); document.getElementById('dep').value = ''">Ekle</button>
+</form>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Departman</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let dep of deps">
+      <th scope="row"></th>
+      <td>{{dep.ad}}</td>
+    </tr>
+  </tbody>
+</table>

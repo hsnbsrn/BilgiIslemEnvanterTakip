@@ -1,0 +1,22 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+table {
+    counter-reset: row-num-1;
+  }
+  table tr {
+    counter-increment: row-num;
+  }
+  table tbody tr th:first-child::before {
+      content: counter(row-num) " ";
+  }
+  ::ng-deep .card.customClass,
+  ::ng-deep .card.customClass .card-header,
+  ::ng-deep .panel.customClass {
+    font-weight: 900;
+    background-color: #000000;
+    color: rgb(202, 0, 0);
+  }
+  ::ng-deep .panel.customClass .panel-body {
+    background-color: #ffffff;
+  }
+  

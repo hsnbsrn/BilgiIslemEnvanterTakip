@@ -1,0 +1,57 @@
+<form #persUpdate="ngForm" (ngSubmit)="add(persUpdate)" id="myForm">
+<div class="form-group">
+  <div  class="col-md-4 mb-3">
+    <label>ID</label>
+    <input type="text" #id="ngModel" readonly="readonly" [(ngModel)]="model2.id" class="form-control"  value="{{p?.id}}"  required name="ID" id="ID">
+  </div>
+</div>
+<div class="form-group">
+  <div class="col-md-4 mb-3">
+    <label for="validationCustom01">Ad Soyad</label>
+    <input type="text" #adsoyad="ngModel" [(ngModel)]="model2.adsoyad" class="form-control" name="adsoyad" id="adsoyad" value="{{p?.adsoyad}}"  required>
+  </div>
+</div>
+<div class="form-group">
+  <div class="col-md-4 mb-3">
+    <label for="validationCustomUsername">Telefon</label>
+    <input type="text" #telefon="ngModel" [(ngModel)]="model2.telefon" class="form-control" name="telefon" id="telefon" value="{{p?.telefon}}"  required>
+  </div>
+</div>
+<div class="form-group">
+  <div class="col-md-6 mb-3">
+    <label for="validationCustom03">Email</label>
+    <input type="text" placeholder="Email" #email="ngModel" [(ngModel)]="model2.email" class="form-control" name="email" id="email" value="{{p?.email}}"  required>
+  </div>
+</div>
+<div class="form-group">
+  <select class="form-control" #departmanId="ngModel" [(ngModel)]="model2.departmanid" requiredid="departmanid" name="departmanid"  >
+    <option *ngFor="let dep of deps" [value]="dep.id">{{ dep.ad }} </option>
+  </select>
+</div>
+<button type="button" class="btn btn-secondary" data-dismiss="modal" routerLink="/personel" routerLinkActive="router-link-active" >Kapat</button>
+<button type="submit"   class="btn btn-primary" >Değişiklikleri Kaydet</button>
+<br>
+<br> 
+</form>
+<button type="button" class="btn btn-danger"   data-toggle="modal" data-target="#exampleModalLong" (click)="deletep()" routerLink="/personel" routerLinkActive="router-link-active" >Sil</button>
+
+
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true" >
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Personeli silmek istediğinzden emin misiniz?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" >Close</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="deletep()" routerLink="/personel" routerLinkActive="router-link-active" >Sil</button>
+      </div>
+    </div>
+  </div>
+</div>

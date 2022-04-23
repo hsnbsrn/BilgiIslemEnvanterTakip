@@ -1,0 +1,105 @@
+<form #persUpdate="ngForm" (ngSubmit)="add(persUpdate)" id="myForm">
+  <div class="form-group">
+    <div  class="col-md-4 mb-3">
+      <label>ID</label>
+      <input type="text" #id="ngModel" readonly="readonly" [(ngModel)]="model2.Cihazid" class="form-control"  value="{{k?.Cihazid}}"  required name="ID" id="ID">
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-md-4 mb-3">
+      <label for="validationCustom01">Anakart</label>
+      <input type="text" #adsoyad="ngModel" [(ngModel)]="model2.Anakart" class="form-control" name="anakart" id="anakart" value="{{k?.Anakart}}"  required>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-md-4 mb-3">
+      <label for="validationCustomUsername">Ekran Kartı</label>
+      <input type="text" #telefon="ngModel" [(ngModel)]="model2.EkranKarti" class="form-control" name="ekrankartı" id="ekrankartı" value="{{k?.EkranKarti}}"  required>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-md-6 mb-3">
+      <label for="validationCustom03">İşlemci</label>
+      <input type="text" placeholder="Email" #email="ngModel" [(ngModel)]="model2.Islemci" class="form-control" name="islmeci" id="islemci" value="{{k?.Islemci}}"  required>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-md-6 mb-3">
+      <label for="validationCustom03">Hdmi</label>
+      <input type="text" placeholder="Email" #email="ngModel" [(ngModel)]="model2.Hdmi" class="form-control" name="hdmi" id="hdmi" value="{{k?.Hdmi}}"  required>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-md-6 mb-3">
+      <label for="validationCustom03">Vga</label>
+      <input type="text" placeholder="Email" #email="ngModel" [(ngModel)]="model2.Vga" class="form-control" name="vga" id="vga" value="{{k?.Vga}}"  required>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-md-6 mb-3">
+      <label for="validationCustom03">Dvi</label>
+      <input type="text" placeholder="Email" #email="ngModel" [(ngModel)]="model2.Dvi" class="form-control" name="dvi" id="dvi" value="{{k?.Dvi}}"  required>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-md-6 mb-3">
+      <label for="validationCustom03">Ip</label>
+      <input type="text" placeholder="Email" #email="ngModel" [(ngModel)]="model2.Ip" class="form-control" name="ip" id="ip" value="{{k?.Ip}}"  required>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-md-6 mb-3">
+      <label >Konum</label>
+    <select class="form-control" #konumid="ngModel" [(ngModel)]="model2.Konumid" name="konumid" id="konumid" requiredid="konumid">
+      <option *ngFor="let dep of konums" [value]="dep.id" >{{dep.OdaNo}} {{dep.DepartmanAd}}</option>
+    </select>
+  </div>
+  </div>
+  <button type="button" class="btn btn-secondary" data-dismiss="modal" routerLink="/cihaz" routerLinkActive="router-link-active" >Close</button>
+  <button type="submit"   class="btn btn-primary" >Save changes</button>
+  <br>
+  <br>
+  </form>
+  <button type="button" class="btn btn-danger"   data-toggle="modal" data-target="#exampleModalLong">Sil</button>
+
+
+  <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true" >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Personeli silmek istediğinzden emin misiniz?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" >Close</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="deletep()" routerLink="/personel" routerLinkActive="router-link-active" >Sil</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true" >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Personeli silmek istediğinzden emin misiniz?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" >Close</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="deletep()" routerLink="/personel" routerLinkActive="router-link-active" >Sil</button>
+        </div>
+      </div>
+    </div>
+  </div>

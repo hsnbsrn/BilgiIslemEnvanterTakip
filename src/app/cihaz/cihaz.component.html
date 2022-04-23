@@ -1,0 +1,143 @@
+<h3>Cihaz Ekle</h3>
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  KASA
+</button>
+<br><br><br><br>
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Kasa Ekle</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form  #persAdd="ngForm" (ngSubmit)="kasaAdd(persAdd)" id="myForm">
+  
+          <div class="form-group">
+            <div class="col-md-6 mb-3">
+              <label >Konum</label>
+            <select class="form-control" #konumid="ngModel" [(ngModel)]="model2.Konumid" name="konumid" id="konumid" requiredid="konumid">
+              <option *ngFor="let dep of konums" [value]="dep.id" >{{dep.OdaNo}} {{dep.DepartmanAd}}</option>
+            </select>
+          </div>
+            <div class="form-group">
+              <div class="col-md-6 mb-3">
+                <Label>Anakart</Label>
+              <input type="text" class="form-control" #konumid="ngModel" [(ngModel)]="model2.Anakart" name="anakart" id="anakart" required/>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-md-6 mb-3">
+              <label >Ekran Kartı</label>
+            <input type="text" class="form-control" #konumid="ngModel" [(ngModel)]="model2.EkranKarti" name="ekrankartı" id="ekrankartı" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-md-6 mb-3">
+            <label >İşlemci</label>
+          <input type="text" class="form-control" #konumid="ngModel" [(ngModel)]="model2.Islemci" name="islemci" id="islemci" required/>
+        </div>
+        </div>
+        <div class="form-group">
+          <div class="col-md-6 mb-3">
+            <label >Dvi</label>
+          <input type="text" class="form-control" #konumid="ngModel" [(ngModel)]="model2.Dvi" name="dvi" id="dvi" required/>
+        </div>
+        </div>
+        <div class="form-group">
+          <div class="col-md-6 mb-3">
+            <label >Hdmi</label>
+          <input type="text" class="form-control" #konumid="ngModel" [(ngModel)]="model2.Hdmi" name="hdmi" id="hdmi" required/>
+        </div>
+        </div>
+        <div class="form-group">
+          <div class="col-md-6 mb-3">
+            <label >Vga</label>
+          <input type="text" class="form-control" #konumid="ngModel" [(ngModel)]="model2.Vga" name="vga" id="vga" required/>
+        </div>
+        </div>
+        <div class="form-group">
+          <div class="col-md-6 mb-3">
+            <label >Ip</label>
+          <input type="text" class="form-control" #konumid="ngModel" [(ngModel)]="model2.Ip" name="ip" id="ip" required/>
+        </div>
+        </div>
+          </div>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary"  onclick="window.location.reload()" >Save changes</button>
+      </form>
+      </div>
+      <div class="modal-footer">
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<accordion [isAnimated]="true">
+  <accordion-group  heading="Tüm Cihazlar">
+    <div class="form-group row">
+      <div for="search" class="label col-sm-2 col-form-label" >Ara</div>
+      <input type="text" class="form-control" [(ngModel)]="filterTerm" name="filter">
+    </div>
+    <table id="empTable" class="table table-striped" >
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Departman</th>
+          <th scope="col">Oda No</th>
+          <th scope="col">Tür</th>
+          <th scope="col">Detay</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let per of cihazs | filter:filterTerm">
+          <th scope="row"></th>
+          <td scope="row">{{per.Departman}}</td>
+          <td scope="row">{{per.OdaNo}}</td>
+          <td scope="row">{{per.Tur}}</td>
+          <td scope="row"> <button type="button" class="btn btn-light mr-1" data-toggle="modal"  routerLink="/{{per.Tur}}/{{per.id}}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+            <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+            <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+          </svg></button></td>
+        </tr>  
+      </tbody>
+    </table>
+  </accordion-group>
+  <accordion-group heading="Kasa" class="">
+    <div class="form-group row">
+      <div for="search" class="label col-sm-2 col-form-label" >Ara</div>
+      <input type="text" class="form-control" [(ngModel)]="filterTerm1" name="filte">
+    </div>
+    <table id="empTable" class="table table-striped" >
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Departman</th>
+          <th scope="col">Oda No</th>
+          <th scope="col">Ip</th>
+          <th scope="col">Detay</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let per of kasas | filter:filterTerm1">
+          <th scope="row"></th>
+          <td scope="row">{{per.Departman}}</td>
+          <td scope="row">{{per.OdaNo}}</td>
+          <td scope="row">{{per.Ip}}</td>
+          <td scope="row"> <button type="button" class="btn btn-light mr-1" data-toggle="modal"  routerLink="/Kasa/{{per.Cihazid}}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+            <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+            <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+          </svg></button></td>
+        </tr>  
+      </tbody>
+    </table>
+  </accordion-group>
+  <accordion-group heading="Another group">
+    <p>Some content</p>
+  </accordion-group>
+  <accordion-group heading="Another group">
+    <p>Some content</p>
+  </accordion-group>
+ 

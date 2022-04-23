@@ -1,0 +1,38 @@
+<form #persUpdate="ngForm" (ngSubmit)="add(persUpdate)" id="myForm">
+  <div class="form-group">
+    <div  class="col-md-4 mb-3">
+      <label>ID</label>
+      <input type="text"  class="form-control"  value="{{k?.id}}" name="ID" id="ID" readonly="readonly">
+    </div>
+  </div>
+<div class="form-group">
+  <select class="form-control" #departmanId="ngModel" [(ngModel)]="model2.DepId" requiredid="departmanid" name="departmanid"  [ngModelOptions]="{standalone: true}">
+    <option *ngFor="let dep of deps" [value]="dep.id">{{ dep.ad }} </option>
+  </select>
+</div>
+<button type="button" class="btn btn-secondary" data-dismiss="modal" routerLink="/konum" routerLinkActive="router-link-active" >Close</button>
+<button type="submit"   class="btn btn-primary" >Save changes</button>
+</form>
+<br>
+<button type="button" class="btn btn-danger"   data-toggle="modal" data-target="#exampleModalLong">Sil</button>
+
+
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true" >
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+         Silmek istediğinzden emin misiniz?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" >Close</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="deletep()" routerLink="/konum" routerLinkActive="router-link-active" >Sil</button>
+      </div>
+    </div>
+  </div>
+</div>
